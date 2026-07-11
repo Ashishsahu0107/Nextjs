@@ -1,18 +1,24 @@
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
+
 const ServerCompPage = async () => {
   const URL = "https://jsonplaceholder.typicode.com/posts";
   const res = await fetch(URL);
-  const data = await res.json();
+  const data: Post[] = await res.json();
   return (
     <div>
-      <h1>Server Component Page</h1>
-      <ul className="grid grid-cols-4 bg-amber-400 gap-5">
-        {data.map((item, index) => (
+      <h1 className="text-xl font-bold p-4 text-white">Server Component Page</h1>
+      <ul className="grid grid-cols-1 md:grid-cols-4 gap-5 p-4">
+        {data.map((item) => (
           <li
             className="bg-white text-gray-800 m-2 p-3 rounded shadow"
-            key={item}
+            key={item.id}
           >
-            {item.id} - {item.title}
-            <div>{item.body}</div>
+            <span className="font-bold">{item.id}</span> - {item.title}
+            <div className="text-xs mt-2 text-gray-550">{item.body}</div>
           </li>
         ))}
       </ul>
@@ -21,3 +27,4 @@ const ServerCompPage = async () => {
 };
 
 export default ServerCompPage;
+
