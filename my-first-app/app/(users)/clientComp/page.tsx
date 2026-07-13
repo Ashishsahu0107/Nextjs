@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import { Counter } from "./counter/Counter";
 
-interface Post {
+interface data {
   id: number;
-  title: string;
-  body: string;
+  title: String;
+  body: String;
 }
 
 const ClientCompPage = () => {
-  const [data, setData] = useState<Post[]>([]);
+  const [data, setData] = useState<data[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,13 +25,13 @@ const ClientCompPage = () => {
   return (
     <div>
       <h1 className="text-xl font-bold p-4">Client Component Page</h1>
-      <Counter/>
+      <Counter />
       <ul className="grid grid-cols-4 bg-amber-400 gap-5">
         {data.map((item) => (
           <li
             className="bg-white text-gray-800 m-2 p-3 rounded shadow"
             key={item.id}
-          > 
+          >
             {item.id} - {item.title}
           </li>
         ))}
