@@ -9,7 +9,7 @@ const products = async ({ searchParams }) => {
 
     return (
         <div>
-            <ProductList/>
+            {/* <ProductList/> */}
             Showing {category} products, sorted by {sort}, page {page}
         </div>
     );

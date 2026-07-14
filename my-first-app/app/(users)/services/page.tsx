@@ -5,7 +5,7 @@ import photo from '../../../public/image.png'
 const page = () => {
   return (
     <>
-      <div className="flex gap-3 justify-center items-center h-[100vh]">
+      <div className="flex gap-3 justify-center items-center h-[100vh] scroll-auto">
         <div className="w-70 h-80 bg-amber-300 flex flex-col justify-around items-center p-4 rounded hover:-translate-y-1.5 transition-all duration-300">
           <div className="w-20 h-20 relative bg-black rounded-full flex justify-center items-center text-white">
             <Image
