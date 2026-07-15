@@ -2,9 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-const RandomJokes = () => { 
-    const [randomJokes, setRandomJokes] = useState({});
-     const [showJokes, setShowJokes] = useState(true);
+interface Joke {
+  setup: string;
+  punchline: string;
+}
+
+const RandomJokes = () => {
+  const [randomJokes, setRandomJokes] = useState<Joke | null>(null);
+  const [showJokes, setShowJokes] = useState(true);
 
     const URL = "https://official-joke-api.appspot.com/random_joke";
 
@@ -31,7 +36,7 @@ const RandomJokes = () => {
 
           <div className="space-y-4">
             <p className="text-lg text-gray-700 font-medium">
-              {randomJokes.setup}
+              {randomJokes?.setup ?? "Loading joke..."}
               {/* {randomJokes.} */}
             </p>
 
@@ -45,7 +50,7 @@ const RandomJokes = () => {
             ) : (
               <div className="animate-fade-in">
                 <p className="text-xl text-amber-700 font-bold bg-amber-50 p-4 rounded-lg border-2 border-amber-200 ">
-                  {randomJokes.punchline} 😄
+                  {randomJokes?.punchline ?? "Loading punchline..."} 😄
                 </p>
                 <button
                   onClick={() => setShowJokes(true)}

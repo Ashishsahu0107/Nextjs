@@ -1,18 +1,26 @@
 import ProductList from "./ProductList";
 
-const products = async ({ searchParams }) => {
-    const searchParam = await searchParams;
+interface ProductsPageProps {
+  searchParams: Promise<{
+    category?: string;
+    sort?: string;
+    page?: string | number;
+  }>;
+}
 
-    const category = searchParam?.category || "all";
-    const sort = searchParam?.sort || "default";
-    const page = searchParam?.page || 1;
+const products = async ({ searchParams }: ProductsPageProps) => {
+  const searchParam = await searchParams;
 
-    return (
-        <div>
-            {/* <ProductList/> */}
-            Showing {category} products, sorted by {sort}, page {page}
-        </div>
-    );
+  const category = searchParam?.category || "all";
+  const sort = searchParam?.sort || "default";
+  const page = Number(searchParam?.page) || 1;
+
+  return (
+    <div>
+      {/* <ProductList/> */}
+      Showing {category} products, sorted by {sort}, page {page}
+    </div>
+  );
 };
 
 export default products;

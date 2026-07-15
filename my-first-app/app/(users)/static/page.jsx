@@ -1,18 +1,20 @@
 import db from "@/config/db";
 
-const staticData = async () => {
-  const doctors = await db.query("SELECT * FROM doctors");
-  console.log(doctors);
+const StaticData = async () => {
+  const [doctors] = await db.query("SELECT * FROM doctors");
 
   return (
     <div>
-      {doctors.map((item, idx) => { 
-        <div key={idx}>{item.first_name} <span>{item.last_name}</span>
-          <p>{item.specialization}</p>
+      {doctors.map((doctor) => (
+        <div key={doctor.doctor_id}>
+          <h2>
+            {doctor.first_name} {doctor.last_name}
+          </h2>
+          <p>{doctor.specialization}</p>
         </div>
-      })}
+      ))}
     </div>
   );
 };
 
-export default staticData;
+export default StaticData;
