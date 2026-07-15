@@ -39,7 +39,7 @@ const DataFetchServer = async ({ user }: DataFetchServerProps) => {
   const isMale = userData.gender === "male";
   const confidencePercentage = userData.probability * 100;
 
-  await new Promise((resolve) => {
+  await new Promise<void>((resolve) => {
     setTimeout(() => {
       resolve();
     }, 5000);
