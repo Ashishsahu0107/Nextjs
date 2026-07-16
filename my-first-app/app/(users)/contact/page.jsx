@@ -19,8 +19,6 @@ const Contact = () => {
 
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-8 border border-gray-800">
               <form className="space-y-6" action={formAction}>
-                {/* Full Name Field */}
-
                 <div>
                   <label
                     htmlFor="fullName"
@@ -56,7 +54,6 @@ const Contact = () => {
                   />
                 </div>
 
-                {/* Message Field */}
                 <div>
                   <label
                     htmlFor="message"
