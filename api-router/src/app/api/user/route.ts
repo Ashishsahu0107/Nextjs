@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET() {
     return NextResponse.json({
         name: "json",
-        age: 20,
+        age: 89,
     });
 }
 
